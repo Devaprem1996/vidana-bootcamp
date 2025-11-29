@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidana Bootcamp</title>
+
+  <!-- Google Fonts: Space Grotesk (Headings), Inter (Body), DM Sans (UI/Accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Space Grotesk', 'sans-serif'],
+            ui: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            // Primary Violet Indigo
+            primary: {
+              50: '#f2f1fd',
+              100: '#e0defa',
+              200: '#c5c0f6',
+              300: '#a299f0',
+              400: '#8a7df0',
+              500: '#6C5CE7', // Main Brand
+              600: '#5b4bc4',
+              700: '#4a3da1',
+              800: '#0D0D15',
+              900: '#0F1117',
+            },
+            // Dark Backgrounds
+            dark: {
+              bg: '#0D0D15',    // Deep Space
+              card: '#15171F',  // Card BG
+              border: '#2A2D3A', // Subtle Border
+              surface: '#1E212B'
+            },
+            // Neo Teal Accent
+            accent: {
+              DEFAULT: '#00D1B2',
+              glow: '#49D3FF',
+              hover: '#00b89c'
+            },
+            // Backward compatibility for existing components using 'brand'
+            brand: {
+              50: '#f2f1fd',
+              100: '#e0defa',
+              200: '#c5c0f6',
+              300: '#a299f0',
+              400: '#8a7df0',
+              500: '#6C5CE7',
+              600: '#5b4bc4',
+              700: '#4a3da1',
+              800: '#392e7e',
+              900: '#0D0D15',
+              950: '#08080c',
+            }
+          },
+          backgroundImage: {
+            'glow-gradient': 'radial-gradient(circle at center, rgba(108, 92, 231, 0.15) 0%, rgba(13, 13, 21, 0) 70%)',
+            'neon-border': 'linear-gradient(45deg, #6C5CE7, #00D1B2)',
+          },
+          boxShadow: {
+            'neon': '0 0 20px rgba(108, 92, 231, 0.3)',
+            'neon-teal': '0 0 20px rgba(0, 209, 178, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    // Check local storage or system preference immediately to prevent flash
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
